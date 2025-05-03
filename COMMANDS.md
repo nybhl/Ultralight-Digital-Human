@@ -22,6 +22,8 @@ pip install onnxruntime
 
 ## 2. Video Preprocessing
 
+Download Kanghui demo video at https://www.bilibili.com/video/av885252652/
+
 ```bash
 cd data_utils
 
@@ -36,7 +38,7 @@ ffmpeg -ss 300 -i kanghui_20fps_better.mp4 -t 300 -c:v copy -c:a copy kanghui_5m
 
 ```bash
 # Run data preprocessing
-python process.py ../kanghui_20fps_better.mp4 --asr wenet
+python process.py ./kanghui_20fps_better.mp4 --asr wenet
 ```
 
 ## 4. Training

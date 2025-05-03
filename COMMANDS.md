@@ -23,6 +23,8 @@ pip install onnxruntime
 ## 2. Video Preprocessing
 
 ```bash
+cd data_utils
+
 # Convert video to 20fps with better quality using libopenh264
 ffmpeg -i kanghui.mp4 -filter:v fps=20 -c:v libopenh264 kanghui_20fps_better.mp4
 
@@ -34,7 +36,6 @@ ffmpeg -ss 300 -i kanghui_20fps_better.mp4 -t 300 -c:v copy -c:a copy kanghui_5m
 
 ```bash
 # Run data preprocessing
-cd data_utils
 python process.py ../kanghui_20fps_better.mp4 --asr wenet
 ```
 

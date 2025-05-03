@@ -9,3 +9,5 @@ syncnet_checkpoint
 *.jpg
 data_utils/encoder.onnx
 __MACOSX
+full_body_img/
+landmarks/

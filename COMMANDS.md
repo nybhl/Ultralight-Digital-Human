@@ -45,21 +45,24 @@ python process.py ./kanghui_20fps_better.mp4 --asr wenet
 
 ```bash
 # Train the model with WeNet features
-python train.py --dataset_dir . --save_dir ./checkpoint/ --asr wenet
+python train.py --dataset_dir ./data_utils --save_dir ./checkpoint/ --asr wenet
 ```
 
 ## 5. Inference
 
 ```bash
+cd data_utils
+python wenet_infer.py seedtts-01_zh.wav 
 # Run inference with WeNet features
-python inference.py --asr=wenet --audio_feat=aud_wenet.npy --save_path=test.mp4 --checkpoint=./checkpoint/195.pth --dataset=./
+python ../inference.py --asr=wenet --audio_feat=seedtts-01_zh_wenet.npy --save_path=test.mp4 --checkpoint=..
+/checkpoint/135.pth --dataset=./
 ```
 
 ## 6. Video and Audio Combination
 
 ```bash
 # Combine video and audio using libopenh264 codec
-ffmpeg -i test.mp4 -i aud.wav -c:v libopenh264 -c:a aac result_test.mp4
+ffmpeg -i test.mp4 -i seedtts-01_zh.wav -c:v libopenh264 -c:a aac result_test.mp4
 ```
 
 ## Notes
